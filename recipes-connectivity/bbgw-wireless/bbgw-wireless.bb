@@ -18,7 +18,7 @@ inherit update-rc.d
 INITSCRIPT_NAME = "bt-init"
 INITSCRIPT_PARAMS = "start 10 5 .  stop 25 0 6 ."
 
-do_install_append () {
+do_install:append () {
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 init ${D}${sysconfdir}/init.d/bt-init
 

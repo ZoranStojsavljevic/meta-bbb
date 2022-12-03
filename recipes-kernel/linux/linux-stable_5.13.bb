@@ -26,7 +26,7 @@ KERNEL_DEVICETREE ?= " \
 LINUX_VERSION = "5.13"
 LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 
 S = "${WORKDIR}/git"
 

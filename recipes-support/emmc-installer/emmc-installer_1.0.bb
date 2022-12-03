@@ -18,7 +18,7 @@ PR = "r4"
 
 S = "${WORKDIR}"
 
-do_install_append () {
+do_install:append () {
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 init ${D}${sysconfdir}/init.d/emmc-installer
 
