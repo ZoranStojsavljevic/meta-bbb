@@ -1,0 +1,31 @@
+rom 74da5a67d8686d57077a95c4d7771606aea1d7e0 Mon Sep 17 00:00:00 2001
+From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
+Date: Mon, 12 Dec 2022 02:33:22 +0100
+Subject: [PATCH] ditto
+
+---
+ drivers/spi/spidev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spidev.c b/drivers/spi/spidev.c
+index b2775d82d2d7..f22fa2f55e4d 100644
+--- a/drivers/spi/spidev.c
++++ b/drivers/spi/spidev.c
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
++/// SPDX-License-Identifier: GPL-2.0-or-later
+ /*
+  * Simple synchronous userspace interface to SPI devices
+  *
+@@ -709,6 +709,7 @@ static int spidev_of_check(struct device *dev)
+ }
+ 
+ static const struct of_device_id spidev_dt_ids[] = {
++	{ .compatible = "userspi" },
+ 	{ .compatible = "rohm,dh2228fv", .data = &spidev_of_check },
+ 	{ .compatible = "lineartechnology,ltc2488", .data = &spidev_of_check },
+ 	{ .compatible = "semtech,sx1301", .data = &spidev_of_check },
+-- 
+2.25.1
+
+k
