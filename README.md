@@ -28,6 +28,15 @@ Latest commits with 4.2.2 mickledore release:
 	meta-qt5             = "upstream/mickledore:d86e2e82c15d186141713515dfd1373013aaebd5"
 	meta-socketcan       = "master:15406dd37cc568d083cb3a40a3c61bd217a1b8ab"
 
+Kernel used in meta-bbb mickledore release:
+
+From the https://kernel.org/ (longterm 6.1.45 kernel)
+
+	mainline:	6.5-rc6		2023-08-13	[tarball]		[patch]		[inc. patch]	[view diff]	[browse]
+	stable:		6.4.10		2023-08-11	[tarball]	[pgp]	[patch]		[inc. patch]	[view diff]	[browse]	[changelog]
+===>>	longterm:	6.1.45		2023-08-11	[tarball]	[pgp]	[patch]		[inc. patch]	[view diff]	[browse]	[changelog]
+	longterm:	5.15.126	2023-08-11	[tarball]	[pgp]	[patch]		[inc. patch]	[view diff]	[browse]	[changelog]
+
 meta-bbb layer maintainer: Scott Ellis <scott@jumpnowtek.com>
 
 meta-bbb layer maintainer: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
