@@ -1,6 +1,6 @@
-From 5c456767fb04b23cf2576b49fc94c35a81feff07 Mon Sep 17 00:00:00 2001
+From a856a7e3e96b0e08c1c2b78c08eb1126421ee344 Mon Sep 17 00:00:00 2001
 From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
-Date: Mon, 26 Feb 2024 16:33:05 +0100
+Date: Fri, 17 May 2024 11:20:48 +0200
 Subject: [PATCH] Customize config and boot command
 
 ---
@@ -8,18 +8,17 @@ Subject: [PATCH] Customize config and boot command
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configs/am335x_evm_defconfig b/configs/am335x_evm_defconfig
-index a179f1ed5f..134da5d49a 100644
+index f048e60f7f..f5a22f1751 100644
 --- a/configs/am335x_evm_defconfig
 +++ b/configs/am335x_evm_defconfig
 @@ -16,7 +16,7 @@ CONFIG_TIMESTAMP=y
  CONFIG_SPL_LOAD_FIT=y
- CONFIG_OF_BOARD_SETUP=y
  CONFIG_DISTRO_DEFAULTS=y
+ CONFIG_OF_BOARD_SETUP=y
 -CONFIG_BOOTCOMMAND="run findfdt; run init_console; run finduuid; run distro_bootcmd"
 +CONFIG_BOOTCOMMAND="run envboot; setenv mmcdev 1; run envboot; setenv mmcdev 0; run findfdt; run distro_bootcmd"
  CONFIG_LOGLEVEL=3
  CONFIG_SYS_CONSOLE_INFO_QUIET=y
  CONFIG_ARCH_MISC_INIT=y
 -- 
-2.43.2
-
+2.45.0
