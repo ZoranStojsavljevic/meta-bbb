@@ -7,32 +7,25 @@ KERNEL_CONFIG_COMMAND = "oe_runmake_call -C ${S} CC="${KERNEL_CC}" O=${B} olddef
 COMPATIBLE_MACHINE = "beaglebone"
 
 KERNEL_DEVICETREE ?= " \
-    am335x-boneblack.dtb \
-    am335x-boneblack-wireless.dtb \
-    am335x-boneblue.dtb \
-    am335x-bonegreen.dtb \
-    am335x-bonegreen-wireless.dtb \
-    am335x-pocketbeagle.dtb \
-    \
-    bbb-4dcape43t.dtb \
-    bbb-4dcape43t-spi.dtb \
-    bbb-4dcape70t.dtb \
-    bbb-gen4-4dcape50t.dtb \
-    bbb-nhd5cape.dtb \
-    bbb-nhd7cape.dtb \
-    bbb-bcc-s6.dtb \
+    ti/omap/am335x-boneblack.dtb \
+    ti/omap/am335x-boneblack-wireless.dtb \
+    ti/omap/am335x-boneblue.dtb \
+    ti/omap/am335x-bonegreen.dtb \
+    ti/omap/am335x-bonegreen-wireless.dtb \
+    ti/omap/am335x-pocketbeagle.dtb \
 "
 
-LINUX_VERSION = "5.19"
+LINUX_VERSION = "6.9"
 LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 
 S = "${WORKDIR}/git"
 
-PV = "5.19.17"
-REV = "17"
-SRCREV = "2b525314c7b57eac29fe8b77a6589428e4a4f6dd"
+PV = "6.9.1"
+REV = "1"
+### SRCREV (6.9.0) = "a38297e3fb012ddfa7ce0321a7e5a8daeb1872b6"
+SRCREV = "b019fcc08127f9f9a50d19fe1ea1869607652838"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y \
     file://defconfig \

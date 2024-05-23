@@ -1,31 +1,31 @@
-From 1e18757c9826563254b354d9d589964c49ff4fae Mon Sep 17 00:00:00 2001
-From: Scott Ellis <scott@jumpnowtek.com>
-Date: Mon, 8 Jul 2019 20:20:16 -0400
-Subject: [PATCH 2/3] dts: Remove bbb cape i2c definitions
+From c3d847f8c64db59d1e4ff5a0ebdeae7490057081 Mon Sep 17 00:00:00 2001
+From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
+Date: Wed, 22 May 2024 08:06:59 +0200
+Subject: [PATCH] ditto
 
 ---
- arch/arm/boot/dts/am335x-bone-common.dtsi | 56 -----------------------
+ .../boot/dts/ti/omap/am335x-bone-common.dtsi  | 56 -------------------
  1 file changed, 56 deletions(-)
 
-diff --git a/arch/arm/boot/dts/am335x-bone-common.dtsi b/arch/arm/boot/dts/am335x-bone-common.dtsi
-index 2d51d4bba6d4..a7645790686d 100644
---- a/arch/arm/boot/dts/am335x-bone-common.dtsi
-+++ b/arch/arm/boot/dts/am335x-bone-common.dtsi
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
+index 2d0216840ff5..1da821b3f5c3 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
 @@ -82,13 +82,6 @@ AM33XX_PADCONF(AM335X_PIN_I2C0_SCL, PIN_INPUT_PULLUP, MUX_MODE0)	/* i2c0_scl.i2c
  		>;
  	};
  
--	i2c2_pins: pinmux_i2c2_pins {
+-	i2c2_pins: i2c2-pins {
 -		pinctrl-single,pins = <
 -			AM33XX_PADCONF(AM335X_PIN_UART1_CTSN, PIN_INPUT_PULLUP, MUX_MODE3)	/* uart1_ctsn.i2c2_sda */
 -			AM33XX_PADCONF(AM335X_PIN_UART1_RTSN, PIN_INPUT_PULLUP, MUX_MODE3)	/* uart1_rtsn.i2c2_scl */
 -		>;
 -	};
 -
- 	uart0_pins: pinmux_uart0_pins {
+ 	uart0_pins: uart0-pins {
  		pinctrl-single,pins = <
  			AM33XX_PADCONF(AM335X_PIN_UART0_RXD, PIN_INPUT_PULLUP, MUX_MODE0)
-@@ -224,55 +217,6 @@ baseboard_data: baseboard_data@0 {
+@@ -229,55 +222,6 @@ baseboard_data: baseboard_data@0 {
  	};
  };
  
@@ -78,9 +78,9 @@ index 2d51d4bba6d4..a7645790686d 100644
 -};
 -
 -
- /include/ "tps65217.dtsi"
+ /include/ "../../tps65217.dtsi"
  
  &tps {
 -- 
-2.25.1
+2.45.1
 
