@@ -18,38 +18,38 @@ This layer depends on:
 	Latest commits with 5.0.1 scarthgap release:
 
 	Build Configuration:
-	BB_VERSION	= "2.8.0"
-	BUILD_SYS	= "x86_64-linux"
-	NATIVELSBSTRING	= "fedora-40"
-	TARGET_SYS	= "x86_64-poky-linux"
-	MACHINE		= "qemux86-64"
-	DISTRO		= "poky"
-	DISTRO_VERSION	= "5.0.1"
-	TUNE_FEATURES	= "m64 core2"
-	TARGET_FPU	= ""
+	BB_VERSION           = "2.8.0"
+	BUILD_SYS            = "x86_64-linux"
+	NATIVELSBSTRING      = "fedora-40"
+	TARGET_SYS           = "arm-poky-linux-gnueabi"
+	MACHINE              = "beaglebone"
+	DISTRO               = "poky"
+	DISTRO_VERSION       = "5.0.1"
+	TUNE_FEATURES        = "arm vfp cortexa8 neon callconvention-hard"
+	TARGET_FPU           = "hard"
 	meta
 	meta-poky
-	meta-yocto-bsp	= "scarthgap:68f9a4b73d17839e0ec1f12a31fc1d42331cc42f"
-	meta-jumpnow	= "scarthgap:500080773492dd842d6ea0627ebc80b2f775ca1c"
-	meta-bbb	= "scarthgap:d3a38f37bb3ca7ebe51c6200258bd9cae0c0203c"
+	meta-yocto-bsp       = "scarthgap:c5df9c829a549ca002c36afd6bdf23639831502e"
+	meta-jumpnow         = "scarthgap:3efb1aa7d511f0fb44d9dcdb578bada1882dc1b3"
+	meta-bbb             = "scarthgap:c0095313c0a7e89b0a1d0bf2cf79d4cb1b9b9185"
 	meta-oe
 	meta-python
-	meta-networking	= "scarthgap:6de0ab744341ad61b0661aa28d78dc6767ce0786"
-	meta-qt5	= "upstream/scarthgap:d8eeef0bfd84672c7919cd346f25f7c9a98ddaea"
-	meta-socketcan	= "scarthgap:3bceabca635c98f06e5e0fb0d411813c3730d805"
+	meta-networking      = "scarthgap:6de0ab744341ad61b0661aa28d78dc6767ce0786"
+	meta-qt5             = "upstream/scarthgap:d8eeef0bfd84672c7919cd346f25f7c9a98ddaea"
+	meta-socketcan       = "scarthgap:7bba7af8403eb9a28e7d0e7f0d0229e3bffcf65a"
 
-Kernel used in meta-bbb scarthgap 6.9.1
+Kernel used in meta-bbb scarthgap 6.9.3
 
-From the https://kernel.org/ (stable: 6.9.1)
+From the https://kernel.org/ (stable: 6.9.3)
 
 ```
 	mainline:	6.10-rc1	2024-05-26
-=====>>	stable:		6.9.1		2024-05-17 <<===== (@ date)
-	stable:		6.8.11		2024-05-25
-	longterm:	6.6.30		2024-05-02
-	longterm:	6.1.90 (latest)	2024-05-02
-	longterm:	5.15.158	2024-05-02
-	longterm:	5.10.216	2024-05-02
+=====>>	stable:		6.9.3		2024-05-30 <<===== (@ date)
+	stable:		6.8.12 [EOL]	2024-05-30
+	longterm:	6.6.32		2024-05-25
+	longterm:	6.1.92		2024-05-25
+	longterm:	5.15.160	2024-05-25
+	longterm:	5.10.218	2024-05-25
 ```
 
 	meta-bbb layer maintainer: Scott Ellis <scott@jumpnowtek.com>

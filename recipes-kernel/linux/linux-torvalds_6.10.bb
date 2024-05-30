@@ -1,7 +1,8 @@
-require linux-stable.inc
+require recipes-kernel/linux/linux-yocto.inc
+### require linux-stable.inc
 
-SUMMARY = "Linux kernel 6.9.3"
-DESCRIPTION = "Linux kernel stable version 6.9.3 from kernel.org"
+SUMMARY = "Linux kernel 6.10-rc1"
+DESCRIPTION = "Linux kernel torvalds version 6.10-rc1 from kernel.org"
 LICENSE = "LGPL-2.1-or-later"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
@@ -19,18 +20,23 @@ KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-pocketbeagle.dtb \
 "
 
-LINUX_VERSION = "6.9"
+LINUX_VERSION = "6.10"
 LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
+### FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-torvalds-${LINUX_VERSION}:${THISDIR}/linux-torvalds-${LINUX_VERSION}/dts:"
+### git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;branch=master;tag=v6.10-rc1
+### git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y
 
 S = "${WORKDIR}/git"
 
-PV = "6.9.3"
-REV = "3"
-SRCREV = "1b4861e32e461b6fae14dc49ed0f1c7f20af5146"
+PV = "6.10-rc1"
+PR = "r0"
+### REV = "rc1"
+
+SRCREV = "1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0"
 SRC_URI = " \
-    git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y \
+    git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;branch=master;tag=${PV} \
     file://defconfig \
     file://0001-spidev-Add-a-generic-compatible-id.patch \
     file://0002-dts-Remove-bbb-cape-i2c-definitions.patch \
