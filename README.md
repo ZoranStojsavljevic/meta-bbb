@@ -29,22 +29,22 @@ This layer depends on:
 	TARGET_FPU           = "hard"
 	meta
 	meta-poky
-	meta-yocto-bsp       = "scarthgap:c5df9c829a549ca002c36afd6bdf23639831502e"
+	meta-yocto-bsp       = "scarthgap:83793ccd865e3e72563e6d5733b6bd02943feb8a"
 	meta-jumpnow         = "scarthgap:3efb1aa7d511f0fb44d9dcdb578bada1882dc1b3"
-	meta-bbb             = "scarthgap:c0095313c0a7e89b0a1d0bf2cf79d4cb1b9b9185"
+	meta-bbb             = "scarthgap:aff52ff41f1c10ff950a942bae176e450406cb87"
 	meta-oe
 	meta-python
-	meta-networking      = "scarthgap:6de0ab744341ad61b0661aa28d78dc6767ce0786"
+	meta-networking      = "scarthgap:4a7bb77f7ebe0ac8be5bab5103d8bd993e17e18d"
 	meta-qt5             = "upstream/scarthgap:d8eeef0bfd84672c7919cd346f25f7c9a98ddaea"
 	meta-socketcan       = "scarthgap:7bba7af8403eb9a28e7d0e7f0d0229e3bffcf65a"
 
-Kernel used in meta-bbb scarthgap 6.9.3
+Kernel used in meta-bbb scarthgap 6.10-rc2
 
-From the https://kernel.org/ (stable: 6.9.3)
+From the https://kernel.org/ (torvalds: 6.10-rc2)
 
 ```
-	mainline:	6.10-rc1	2024-05-26
-=====>>	stable:		6.9.3		2024-05-30 <<===== (@ date)
+=====>>	mainline:       6.10-rc2        2024-06-02 <<===== (@ date)
+	stable:		6.9.3		2024-05-30
 	stable:		6.8.12 [EOL]	2024-05-30
 	longterm:	6.6.32		2024-05-25
 	longterm:	6.1.92		2024-05-25

@@ -1,13 +1,35 @@
-require recipes-kernel/linux/linux-yocto.inc
-### require linux-stable.inc
+# Copyright meta-linux-mainline contributors (auto-generated file)
+# SPDX-License-Identifier: CC0-1.0
 
-SUMMARY = "Linux kernel 6.10-rc1"
-DESCRIPTION = "Linux kernel torvalds version 6.10-rc1 from kernel.org"
+inherit kernel
+### inherit kernel-yocto
+inherit pkgconfig
+
+### SECTION = "kernel"
+SUMMARY = "Linux kernel"
+DESCRIPTION = "Linux kernel torvalds from kernel.org"
 LICENSE = "LGPL-2.1-or-later"
-
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
+LINUX_VERSION = "6.10"
+
+PV = "6.10.rc2"
+### PV = "${LINUX_VERSION}+git${SRCPV}"
+
+SRCREV = "c3f38fa61af77b49866b006939479069cd451173"
+SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
+### SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=${PV}"
+S = "${WORKDIR}/git"
+
+DEPENDS += "libyaml-native python3-dtschema-wrapper-native"
+
 KERNEL_CONFIG_COMMAND = "oe_runmake_call -C ${S} CC="${KERNEL_CC}" O=${B} olddefconfig"
+### KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} ${KBUILD_DEFCONFIG}"
+
+LINUX_VERSION_EXTENSION = "-jumpnow_zee"
+
+### FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/linux-mainline-${LINUX_VERSION}:${THISDIR}/linux-mainline-${LINUX_VERSION}/dts:"
 
 COMPATIBLE_MACHINE = "beaglebone"
 
@@ -20,23 +42,7 @@ KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-pocketbeagle.dtb \
 "
 
-LINUX_VERSION = "6.10"
-LINUX_VERSION_EXTENSION = "-jumpnow_zee"
-
-### FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
-FILESEXTRAPATHS:prepend := "${THISDIR}/linux-torvalds-${LINUX_VERSION}:${THISDIR}/linux-torvalds-${LINUX_VERSION}/dts:"
-### git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;branch=master;tag=v6.10-rc1
-### git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y
-
-S = "${WORKDIR}/git"
-
-PV = "6.10-rc1"
-PR = "r0"
-### REV = "rc1"
-
-SRCREV = "1613e604df0cd359cf2a7fbd9be7a0bcfacfabd0"
-SRC_URI = " \
-    git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;branch=master;tag=${PV} \
+SRC_URI:append:use-common-patches = " \
     file://defconfig \
     file://0001-spidev-Add-a-generic-compatible-id.patch \
     file://0002-dts-Remove-bbb-cape-i2c-definitions.patch \
