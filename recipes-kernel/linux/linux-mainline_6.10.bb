@@ -31,7 +31,7 @@ LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 ### FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-mainline-${LINUX_VERSION}:${THISDIR}/linux-mainline-${LINUX_VERSION}/dts:"
 
-COMPATIBLE_MACHINE = "beaglebone"
+COMPATIBLE_MACHINE ??= "beaglebone"
 
 KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-boneblack.dtb \
