@@ -11,12 +11,13 @@ DESCRIPTION = "Linux kernel torvalds from kernel.org"
 LICENSE = "LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
-LINUX_VERSION = "6.10"
+LINUX_VERSION = "6.11"
 
-PV = "6.10.rc2"
+PV = "6.11.rc2"
 ### PV = "${LINUX_VERSION}+git${SRCPV}"
 
-SRCREV = "c3f38fa61af77b49866b006939479069cd451173"
+### SRCREV = "c3f38fa61af77b49866b006939479069cd451173"
+SRCREV = "de9c2c66ad8e787abec7c9d7eff4f8c3cdd28aed"
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
 ### SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=${PV}"
 S = "${WORKDIR}/git"
@@ -31,7 +32,7 @@ LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 ### FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-mainline-${LINUX_VERSION}:${THISDIR}/linux-mainline-${LINUX_VERSION}/dts:"
 
-COMPATIBLE_MACHINE = "beaglebone"
+COMPATIBLE_MACHINE ??= "beaglebone"
 
 KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-boneblack.dtb \

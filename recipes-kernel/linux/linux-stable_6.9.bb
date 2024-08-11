@@ -28,6 +28,7 @@ S = "${WORKDIR}/git"
 
 PV = "6.9.3"
 REV = "3"
+
 SRCREV = "1b4861e32e461b6fae14dc49ed0f1c7f20af5146"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y \
