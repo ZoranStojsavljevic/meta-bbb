@@ -16,7 +16,7 @@ SRC_URI = "file://init \
 
 PR = "r4"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/emmc-installer-${PV}.bb"
 
 do_install:append () {
     install -d ${D}${sysconfdir}/init.d

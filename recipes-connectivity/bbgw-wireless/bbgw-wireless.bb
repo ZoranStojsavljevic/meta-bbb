@@ -11,7 +11,7 @@ SRC_URI = "file://init \
 
 PR = "r0"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/bbgw-wireless.bb"
 
 inherit update-rc.d
 

@@ -13,7 +13,7 @@ SRC_URI = "file://init \
 
 PR = "r5"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/emmc-upgrader-${PV}.bb"
 
 inherit update-rc.d
 

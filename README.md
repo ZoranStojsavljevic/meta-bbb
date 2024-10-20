@@ -6,7 +6,7 @@ This layer depends on:
 	URI: git://git.openembedded.org/meta-openembedded
 	branch: scarthgap
 
-	URI: https://github.com/meta-qt5/meta-qt5.git
+	URI: https://github.com/meta-qt6/meta-qt6.git
 	branch: scarthgap
 
 	URI: git://git.yoctoproject.org/meta-security.git
@@ -35,7 +35,7 @@ This layer depends on:
 	meta-oe
 	meta-python
 	meta-networking      = "scarthgap:2338409efc51cf2022ff5610a9fb689251706e2b"
-	meta-qt5             = "upstream/scarthgap:eb828418264a49b8d00035cb3d7b12fcea3be801"
+	meta-qt6             = "upstream/scarthgap:eb828418264a49b8d00035cb3d7b12fcea3be801"
 	meta-socketcan       = "scarthgap:7bba7af8403eb9a28e7d0e7f0d0229e3bffcf65a"
 
 Kernel used in meta-bbb scarthgap 6.11-rc2
