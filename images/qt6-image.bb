@@ -1,4 +1,4 @@
-SUMMARY = "A Qt5 development image"
+SUMMARY = "A Qt6 development image"
 HOMEPAGE = "http://www.jumpnowtek.com"
 
 require console-image.bb
@@ -15,7 +15,7 @@ QT_TOOLS = " \
     qtbase \
     qtbase-plugins \
     qtserialport \
-    qt5-env \
+    qt6-env \
 "
 
 FONTS = " \
@@ -39,4 +39,4 @@ IMAGE_INSTALL += " \
     tspress-tools \
 "
 
-export IMAGE_BASENAME = "qt5-image"
+export IMAGE_BASENAME = "qt6-image"

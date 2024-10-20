@@ -3,7 +3,7 @@
 MACHINE=beaglebone
 HOSTNAME=bbb
 DSTDIR=~/bbb/upload
-IMG=qt5
+IMG=qt6
 
 if [ ! -d /media/card ]; then
         echo "Temporary mount point [/media/card] not found"
