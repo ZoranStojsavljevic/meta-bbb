@@ -9,7 +9,7 @@ SRC_URI = "file://cursor-on \
 
 PR = "0"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/cursor_blink-${PV}"
 
 do_install() {
     install -d ${D}${bindir}
