@@ -1,58 +1,44 @@
 This layer depends on:
 
 	URI: git://git.yoctoproject.org/poky.git
-	branch: scarthgap
+	branch: styhead
 
 	URI: git://git.openembedded.org/meta-openembedded
-	branch: scarthgap
+	branch: styhead
 
 	URI: https://github.com/meta-qt6/meta-qt6.git
-	branch: scarthgap
+	branch: dev
 
 	URI: git://git.yoctoproject.org/meta-security.git
-	branch: scarthgap
+	branch: styhead
 
 	URI: https://github.com/jumpnow/meta-jumpnow.git
-	branch: scarthgap
+	branch: styhead
 
-	Latest commits with 5.0.2 scarthgap release:
+	Latest commits with 5.1 styhead release:
 
 	Build Configuration:
-	BB_VERSION           = "2.8.0"
+**==>>	BB_VERSION           = "2.9.1"
 	BUILD_SYS            = "x86_64-linux"
 	NATIVELSBSTRING      = "fedora-40"
 	TARGET_SYS           = "arm-poky-linux-gnueabi"
 	MACHINE              = "beaglebone-yocto"
 	DISTRO               = "poky"
-	DISTRO_VERSION       = "5.0.2"
+**==>>	DISTRO_VERSION       = "5.1"
 	TUNE_FEATURES        = "arm vfp cortexa8 neon callconvention-hard"
 	TARGET_FPU           = "hard"
 	meta
 	meta-poky
-	meta-yocto-bsp       = "scarthgap:6ced2e7ca3b58130154035ad61685cd222909680"
-	meta-jumpnow         = "scarthgap:3efb1aa7d511f0fb44d9dcdb578bada1882dc1b3"
-	meta-bbb             = "scarthgap:a25e0b0de2df83d8bde50eee9e7ff3b25150e173"
+	meta-yocto-bsp       = "styhead:86bc5dca182a3fe774e17811a82177a68b27a6bb"
+	meta-jumpnow         = "styhead:7adb5044e310819ceb310b3b300ff96704368214"
+	meta-bbb             = "styhead:ed13b4ecd30cbf6df0c5127650f5a378c85b6859"
 	meta-oe
 	meta-python
-	meta-networking      = "scarthgap:2338409efc51cf2022ff5610a9fb689251706e2b"
-	meta-qt6             = "upstream/scarthgap:eb828418264a49b8d00035cb3d7b12fcea3be801"
-	meta-socketcan       = "scarthgap:7bba7af8403eb9a28e7d0e7f0d0229e3bffcf65a"
+	meta-networking      = "styhead:461d85a1831318747af5abe86da193bcde3fd9b4"
+	meta-qt6             = "dev:abdf375a2efe48e30050bd54c717a970f883357c"
+	meta-socketcan       = "styhead:3de33a9b777959a9045579ccd0aa1088eda09199"
 
-Kernel used in meta-bbb scarthgap 6.11-rc2
-
-From the https://kernel.org/ (torvalds: 6.11-rc2)
-
-```
-=====>>	mainline:	6.11-rc2	2024-08-04 <<===== (@ date)
-	stable:		6.10.4		2024-08-11
-	stable:		6.9.12 [EOL]	2024-07-27
-	longterm:	6.6.45		2024-08-11
-	longterm:	6.1.104		2024-08-11
-	longterm:	5.15.164	2024-07-27
-	longterm:	5.10.223	2024-07-27
-	longterm:	5.4.281		2024-07-27
-	longterm:	4.19.319	2024-07-27
-```
+Kernel used in meta-bbb styhead 6.11.4
 
 	meta-bbb layer maintainer: Scott Ellis <scott@jumpnowtek.com>
 	meta-bbb layer maintainer: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>

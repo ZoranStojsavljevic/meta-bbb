@@ -32,7 +32,7 @@ REV = "3"
 SRCREV = "1b4861e32e461b6fae14dc49ed0f1c7f20af5146"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y \
-    file://defconfig \
+    file://beaglebone/defconfig \
     file://0001-spidev-Add-a-generic-compatible-id.patch \
     file://0002-dts-Remove-bbb-cape-i2c-definitions.patch \
     file://0003-wlcore-Change-NO-FW-RX-BA-session-warnings-to-debug.patch \
