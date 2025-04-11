@@ -1,8 +1,10 @@
-cat 0001-Fix-issue-with-header-formatting.patch 
+cat 0001-Fix-issue-with-header-formatting.patch
 From c78d1bfc2bf1df78f0742b2994220cd15c09293a Mon Sep 17 00:00:00 2001
 From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
 Date: Thu, 24 Oct 2024 12:47:01 +0200
 Subject: [PATCH] spidev Add a generic compatible id
+
+Upstream-Status: Pending
 
 ---
  drivers/spi/spidev.c | 1 +

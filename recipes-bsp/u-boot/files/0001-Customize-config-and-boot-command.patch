@@ -3,6 +3,8 @@ From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
 Date: Wed, 23 Oct 2024 11:20:48 +0200
 Subject: [PATCH] Customize config and boot command
 
+Upstream-Status: Inappropriate [configuration specific to local hardware]
+
 ---
  configs/am335x_evm_defconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
