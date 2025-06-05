@@ -3,6 +3,8 @@ From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
 Date: Wed, 22 May 2024 08:06:59 +0200
 Subject: [PATCH] ditto
 
+Upstream-Status: Pending
+
 ---
  .../boot/dts/ti/omap/am335x-bone-common.dtsi  | 56 -------------------
  1 file changed, 56 deletions(-)

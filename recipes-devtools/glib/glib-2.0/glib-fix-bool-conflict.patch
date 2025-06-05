@@ -1,0 +1,33 @@
+glib-fix-bool-keyword-conflict.patch
+
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Thu, 5 Jun 2025 10:00:00 +0000
+Subject: [PATCH] glib: avoid use of 'bool' as struct member name (conflicts with C99 keyword)
+
+---
+ glib/glib/goption.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/glib/glib/goption.c b/glib/glib/goption.c
+index abcdef1..1234567 100644
+--- a/glib/glib/goption.c
++++ b/glib/glib/goption.c
+@@ -166,7 +166,7 @@ struct _GOptionParseContextChange
+   gchar *filename;
+   gint int_number;
+   gdouble double_number;
+-  gboolean bool;
++  gboolean bool_val;
+ };
+ 
+ static void
+@@ -1600,7 +1600,7 @@ free_changes_list (GSList *list)
+       case G_OPTION_ARG_NONE:
+       case G_OPTION_ARG_NOARG:
+       case G_OPTION_ARG_BOOL:
+-        *(gboolean *)change->arg_data = change->prev.bool;
++        *(gboolean *)change->arg_data = change->prev.bool_val;
+         break;
+ 
+       case G_OPTION_ARG_INT:
