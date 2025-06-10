@@ -1,16 +1,16 @@
-From c3d847f8c64db59d1e4ff5a0ebdeae7490057081 Mon Sep 17 00:00:00 2001
+From 6a2e3f60dc42fadd0a615d252059a39b1489f843 Mon Sep 17 00:00:00 2001
 From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
-Date: Wed, 22 May 2024 08:06:59 +0200
-Subject: [PATCH] ditto
+Date: Wed, 11 Jun 2025 06:29:30 +0200
+Subject: [PATCH] Update DTS to remove cape I2C definitions
 
 Upstream-Status: Pending
 
 ---
- .../boot/dts/ti/omap/am335x-bone-common.dtsi  | 56 -------------------
- 1 file changed, 56 deletions(-)
+ .../boot/dts/ti/omap/am335x-bone-common.dtsi  | 76 -------------------
+ 1 file changed, 76 deletions(-)
 
 diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
-index 2d0216840ff5..1da821b3f5c3 100644
+index c400b7b70d0d..eefaa7b33699 100644
 --- a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
 +++ b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
 @@ -82,13 +82,6 @@ AM33XX_PADCONF(AM335X_PIN_I2C0_SCL, PIN_INPUT_PULLUP, MUX_MODE0)	/* i2c0_scl.i2c
@@ -27,7 +27,7 @@ index 2d0216840ff5..1da821b3f5c3 100644
  	uart0_pins: uart0-pins {
  		pinctrl-single,pins = <
  			AM33XX_PADCONF(AM335X_PIN_UART0_RXD, PIN_INPUT_PULLUP, MUX_MODE0)
-@@ -229,55 +222,6 @@ baseboard_data: baseboard_data@0 {
+@@ -233,75 +226,6 @@ baseboard_data: baseboard_data@0 {
  	};
  };
  
@@ -38,43 +38,63 @@ index 2d0216840ff5..1da821b3f5c3 100644
 -	status = "okay";
 -	clock-frequency = <100000>;
 -
--	cape_eeprom0: cape_eeprom0@54 {
+-	cape_eeprom0: eeprom@54 {
 -		compatible = "atmel,24c256";
 -		reg = <0x54>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		cape0_data: cape_data@0 {
--			reg = <0 0x100>;
+-
+-		nvmem-layout {
+-			compatible = "fixed-layout";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			cape0_data: cape_data@0 {
+-				reg = <0 0x100>;
+-			};
 -		};
 -	};
 -
--	cape_eeprom1: cape_eeprom1@55 {
+-	cape_eeprom1: eeprom@55 {
 -		compatible = "atmel,24c256";
 -		reg = <0x55>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		cape1_data: cape_data@0 {
--			reg = <0 0x100>;
+-
+-		nvmem-layout {
+-			compatible = "fixed-layout";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			cape1_data: cape_data@0 {
+-				reg = <0 0x100>;
+-			};
 -		};
 -	};
 -
--	cape_eeprom2: cape_eeprom2@56 {
+-	cape_eeprom2: eeprom@56 {
 -		compatible = "atmel,24c256";
 -		reg = <0x56>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		cape2_data: cape_data@0 {
--			reg = <0 0x100>;
+-
+-		nvmem-layout {
+-			compatible = "fixed-layout";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			cape2_data: cape_data@0 {
+-				reg = <0 0x100>;
+-			};
 -		};
 -	};
 -
--	cape_eeprom3: cape_eeprom3@57 {
+-	cape_eeprom3: eeprom@57 {
 -		compatible = "atmel,24c256";
 -		reg = <0x57>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		cape3_data: cape_data@0 {
--			reg = <0 0x100>;
+-
+-		nvmem-layout {
+-			compatible = "fixed-layout";
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+-
+-			cape3_data: cape_data@0 {
+-				reg = <0 0x100>;
+-			};
 -		};
 -	};
 -};
@@ -84,5 +104,5 @@ index 2d0216840ff5..1da821b3f5c3 100644
  
  &tps {
 -- 
-2.45.1
+2.49.0
 

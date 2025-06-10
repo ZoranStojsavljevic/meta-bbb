@@ -3,8 +3,8 @@
 
 require linux-stable.inc
 
-SUMMARY = "Linux kernel 6.14.9"
-DESCRIPTION = "Linux kernel stable version 6.14.9 from kernel.org"
+SUMMARY = "Linux kernel 6.15.2"
+DESCRIPTION = "Linux kernel stable version 6.15.2 from kernel.org"
 LICENSE = "LGPL-2.1-or-later"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
@@ -12,6 +12,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 KERNEL_CONFIG_COMMAND = "oe_runmake_call -C ${S} CC="${KERNEL_CC}" O=${B} olddefconfig"
 
 COMPATIBLE_MACHINE = "beaglebone"
+
+INSANE_SKIP:${PN}-src += "buildpaths"
 
 KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-boneblack.dtb \
@@ -22,17 +24,17 @@ KERNEL_DEVICETREE ?= " \
     ti/omap/am335x-pocketbeagle.dtb \
 "
 
-LINUX_VERSION = "6.14"
+LINUX_VERSION = "6.15"
 LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 
 S = "${WORKDIR}/git"
 
-PV = "6.14.9"
-REV = "9"
+PV = "6.15.2"
+REV = "2"
 
-SRCREV = "df3f6d10f353de274cc7c87f52dba5d26f185393"
+SRCREV = "fc85704c3dae5ac1cb3c94045727241cd72871ff"
 SRC_URI = " \
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-${LINUX_VERSION}.y \
     file://beaglebone/defconfig \
@@ -61,3 +63,26 @@ SRC_URI = " \
     file://bbb-nhd7cape.dts;subdir=git/arch/arm/boot/dts \
     file://bbb-bcc-s6.dts;subdir=git/arch/arm/boot/dts \
 "
+
+do_compile:append() {
+    echo "Sanitizing generated headers to remove TMPDIR references..."
+
+    TMPDIR_ESCAPED=$(echo "${TMPDIR}" | sed -e 's/[\/&]/\\&/g')
+
+    ## Only run DRM msm cleanup if the directory exists (avoids spurious errors)
+    if [ -d "${S}/drivers/gpu/drm/msm/generated" ]; then
+        find ${S}/drivers/gpu/drm/msm/generated -name '*.xml.h' -exec \
+            sed -i "s/${TMPDIR_ESCAPED}//g" {} +
+    fi
+
+    ## Also clean generated mach-types.h if it exists
+    if [ -f "${S}/arch/arm/include/generated/asm/mach-types.h" ]; then
+        sed -i "s/${TMPDIR_ESCAPED}//g" \
+            ${S}/arch/arm/include/generated/asm/mach-types.h || true
+    fi
+}
+
+do_install:append() {
+    find ${D} -type f -name "*.h" -exec sed -i -e "s|${TMPDIR}|\${TMPDIR_REPLACED}|g" {} +
+}
+
