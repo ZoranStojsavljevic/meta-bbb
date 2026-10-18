@@ -1,0 +1,22 @@
+From c78d1bfc2bf1df78f0742b2994220cd15c09293a Mon Sep 17 00:00:00 2001
+From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
+Date: Sun, 18 Oct 2026 16:15:01 +0200
+Subject: [PATCH] spidev: Add a generic compatible ID
+
+Upstream-Status: Pending
+
+---
+ drivers/spi/spidev.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/spi/spidev.c b/drivers/spi/spidev.c
+--- a/drivers/spi/spidev.c
++++ b/drivers/spi/spidev.c
+@@ -720,4 +720,5 @@
+ static const struct of_device_id spidev_dt_ids[] = {
++	{ .compatible = "userspi" },
+ 	{ .compatible = "abb,spi-sensor", .data = &spidev_of_check },
+ 	{ .compatible = "cisco,spi-petra", .data = &spidev_of_check },
+ 	{ .compatible = "dh,dhcom-board", .data = &spidev_of_check },
+-- 
+2.54.0
