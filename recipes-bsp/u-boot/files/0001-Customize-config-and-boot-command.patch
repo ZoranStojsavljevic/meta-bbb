@@ -1,15 +1,15 @@
-From f8d9718dfc2bd1d78f8622dd0e6fcdbcfc55b5aa Mon Sep 17 00:00:00 2001
+From ea69c6163caf15bf9d63ab5b2e2085ed1c2e7e12 Mon Sep 17 00:00:00 2001
 From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
 Date: Wed, 23 Oct 2024 11:20:48 +0200
 Subject: [PATCH] Customize config and boot command
 
-Upstream-Status: Inappropriate [configuration specific to local hardware]
+Upstream-Status: Inappropriate configuration, specific to local hardware
 ---
  configs/am335x_evm_defconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configs/am335x_evm_defconfig b/configs/am335x_evm_defconfig
-index 6d1da0cfc7c..2902d2abb1d 100644
+index 5a3e0530a31..83d710d2305 100644
 --- a/configs/am335x_evm_defconfig
 +++ b/configs/am335x_evm_defconfig
 @@ -17,7 +17,7 @@ CONFIG_FIT_VERBOSE=y
@@ -20,6 +20,4 @@ index 6d1da0cfc7c..2902d2abb1d 100644
 +CONFIG_BOOTCOMMAND="run envboot; setenv mmcdev 1; run envboot; setenv mmcdev 0; run findfdt; run distro_bootcmd"
  CONFIG_LOGLEVEL=3
  CONFIG_SYS_CONSOLE_INFO_QUIET=y
- CONFIG_ARCH_MISC_INIT=y
--- 
-2.49.0
+ CONFIG_SPL_SYS_MALLOC=y
