@@ -29,15 +29,15 @@ LINUX_VERSION_EXTENSION = "-jumpnow_zee"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:${THISDIR}/linux-stable-${LINUX_VERSION}/dts:"
 
+PV = "6.18.57"
+REV = "57"
+
 ## linux-stable-6.18.57-r0 do_unpack: Recipes that set
 ## S = "${WORKDIR}/git" or S = "${UNPACKDIR}/git" should remove
 ## that assignment, as S set by bitbake.conf in oe-core now works.
 ##
 ## S = "${WORKDIR}/git"
-
-PV = "6.18.57"
-REV = "57"
-
+##
 ## BitBake checks out the repository into a directory named
 ## after ${BP} under ${UNPACKDIR}. The additional files, such
 ## as the .dtsi files, are also unpacked there according to
@@ -109,4 +109,3 @@ do_compile:append() {
 do_install:append() {
     find ${D} -type f -name "*.h" -exec sed -i -e "s|${TMPDIR}|\${TMPDIR_REPLACED}|g" {} +
 }
-
