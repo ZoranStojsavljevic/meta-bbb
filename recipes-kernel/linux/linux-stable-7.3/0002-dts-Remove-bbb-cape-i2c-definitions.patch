@@ -1,16 +1,15 @@
-From 6a2e3f60dc42fadd0a615d252059a39b1489f843 Mon Sep 17 00:00:00 2001
+From f38064f4fd0f77be01c370d0d7dcf91766c33afe Mon Sep 17 00:00:00 2001
 From: Zoran Stojsavljevic <zoran.stojsavljevic@gmail.com>
 Date: Wed, 11 Jun 2025 06:29:30 +0200
 Subject: [PATCH] Update DTS to remove cape I2C definitions
 
 Upstream-Status: Pending
-
 ---
  .../boot/dts/ti/omap/am335x-bone-common.dtsi  | 76 -------------------
  1 file changed, 76 deletions(-)
 
 diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
-index c400b7b70d0d..eefaa7b33699 100644
+index 1d83fc116b66..01b7a8f729c9 100644
 --- a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
 +++ b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
 @@ -82,13 +82,6 @@ AM33XX_PADCONF(AM335X_PIN_I2C0_SCL, PIN_INPUT_PULLUP, MUX_MODE0)	/* i2c0_scl.i2c
@@ -103,6 +102,3 @@ index c400b7b70d0d..eefaa7b33699 100644
  /include/ "../../tps65217.dtsi"
  
  &tps {
--- 
-2.49.0
-

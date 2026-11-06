@@ -1,19 +1,18 @@
-From 94417d2b8b5d321b0a144e4104bc6b654694aa67 Mon Sep 17 00:00:00 2001
+From dcf8d5ae5d64316005a607769f1d247b0096afb8 Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@jumpnowtek.com>
 Date: Sun, 12 May 2019 05:07:25 -0400
-Subject: [PATCH 3/3] wlcore: Change NO FW RX BA session warnings to debug
+Subject: [PATCH] wlcore: Change NO FW RX BA session warnings to debug
 
 Upstream-Status: Pending
-
 ---
  drivers/net/wireless/ti/wlcore/acx.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/wireless/ti/wlcore/acx.c b/drivers/net/wireless/ti/wlcore/acx.c
-index e820fe694121..8510e3b4f4a0 100644
+index 9efa13638c45..02b787b1087c 100644
 --- a/drivers/net/wireless/ti/wlcore/acx.c
 +++ b/drivers/net/wireless/ti/wlcore/acx.c
-@@ -1434,7 +1434,7 @@ int wl12xx_acx_set_ba_receiver_session(struct wl1271 *wl, u8 tid_index,
+@@ -1433,7 +1433,7 @@ int wl12xx_acx_set_ba_receiver_session(struct wl1271 *wl, u8 tid_index,
  
  	/* sometimes we can't start the session */
  	if (ret == CMD_STATUS_NO_RX_BA_SESSION) {
@@ -22,6 +21,3 @@ index e820fe694121..8510e3b4f4a0 100644
  		ret = -EBUSY;
  		goto out;
  	}
--- 
-2.25.1
-

@@ -15,8 +15,7 @@ This layer depends on:
 	URI: https://github.com/jumpnow/meta-jumpnow.git
 	branch: wrynose
 
-	Kernel used in meta-bbb wrynose: 6.18.57
-	(long term kernel released on 2026-10-15).
+Kernels used in meta-bbb wrynose: 6.18.57 and 7.3.1 .
 
 	#################################################################
 	####                       PLEASE READ
